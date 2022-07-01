@@ -4,7 +4,7 @@ use App\Modules\Fonction\Http\Controllers\FonctionController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'auth:sanctum',
     'prefix' => 'api/fonctions'
 
 ], function ($router) {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Modules\DamageType\Http\Controllers\DamageTypeController;
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'auth:sanctum',
     'prefix' => 'api/damage_types'
 
 ], function ($router) {

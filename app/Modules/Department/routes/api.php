@@ -4,7 +4,7 @@ use App\Modules\Department\Http\Controllers\DepartmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'auth:sanctum',
     'prefix' => 'api/departments'
 
 ], function ($router) {

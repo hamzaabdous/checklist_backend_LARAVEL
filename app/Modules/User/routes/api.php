@@ -3,8 +3,18 @@
 use App\Modules\User\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'auth:sanctum',
+    'prefix' => 'api/users'
+
+], function ($router) {
+    Route::post('/logout', [UserController::class, 'logout']);
+});
+
+
+Route::group([
+    'middleware' => 'auth:sanctum',
     'prefix' => 'api/users'
 
 ], function ($router) {
@@ -13,7 +23,6 @@ Route::group([
     Route::post('/create', [UserController::class, 'create']);
     Route::post('/update', [UserController::class, 'update']);
     Route::post('/delete', [UserController::class, 'delete']);
-
 });
 
 
@@ -23,6 +32,6 @@ Route::group([
 
 ], function ($router) {
     Route::post('/login', [UserController::class, 'login']);
-    Route::post('/logout', [UserController::class, 'logout']);
+
 
 });

@@ -182,9 +182,9 @@ class ProfileGroupController extends Controller
         }
 
         $profileGroup->users()->attach($user);
-
+        $user->profileGroups=$user->profileGroups;
         return [
-            "payload" => "The user has been added successfully",
+            "payload" => $user,
             "status" => "200"
         ];
     }
@@ -270,8 +270,8 @@ class ProfileGroupController extends Controller
             array_push($counters,[
                 "id" => $profileGroups[$i]->id,
                 "name" => $profileGroups[$i]->name,
-                "equipmentsCount" => count($equipment),
                 "department_id" => $profileGroups[$i]->department->id,
+                "equipmentsCount" => count($equipment),
                 "functionalEquipmnet" => $functionalEquipmnet,
                 "damagedCount" => $damagedCount,
                 "confirmedCount" => $confirmedCount,
@@ -324,8 +324,8 @@ class ProfileGroupController extends Controller
                     "id" => $profileGroup->id,
                     "name" => $profileGroup->name,
                     "equipmentsCount" => count($equipments),
-                    "department_id" => $profileGroup->department->id,
                     "functionalEquipmnet" => $functionalEquipmnet,
+                    "department_id" => $profileGroup->department->id,
                     "damagedCount" => $damagedCount,
                     "confirmedCount" => $confirmedCount,
                     "closedCount" => $closedCount,

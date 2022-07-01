@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Modules\Equipment\Http\Controllers\EquipmentController;
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'auth:sanctum',
     'prefix' => 'api/equipments'
 
 ], function ($router) {
